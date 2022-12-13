@@ -63,6 +63,55 @@ COUNT(*) AS "จำนวน" //นับข้อมูล (ที่ไหน?
 FROM databaseName
 GROUP BY fname //นับข้อมูลที่ fname
 
+**สอบถามข้อมูลแบบมีเงื่อนไข**
+เครื่องหมายเปรียบเทียบ :
+	- = เท่ากับ
+	- != ไม่เท่ากับ
+	- > มากกว่า
+ 	- < น้อยกว่า
+	- >= มากกว่าเท่ากับ
+ 	- <= น้อยกว่าเท่ากับ
+	
+SELECT fname,lname,salary
+FROM databaseName
+WHERE salary >= 15000
+
+**สอบถามข้อมูลแบบมีเงื่อนไข แบบหลายเงื่อนไข**
+AND ทุกเงื่อนไขเป็นจริง
+OR	เงื่อนไขใด เงื่อนไขนึง เป็นจริง
+NOT = != ??
+//AND
+SELECT fname,lname,salary
+FROM databaseName
+WHERE salary >= 15000 AND salary < 20000
+
+//OR
+SELECT fname,lname,salary
+FROM databaseName
+WHERE fname = "สมหมาย" OR salary < 20000
+
+//NOT
+SELECT fname,lname,salary
+FROM databaseName
+WHERE NOT fname = "สมหมาย" AND salary = 500
+
+**จัดเรียงข้อมูลด้วย ORDER BY**
+ASC น้อย-มาก
+DESC มาก-น้อย
+
+SELECT fname,lname,salary
+FROM databaseName
+WHERE salary = 500
+ORDER BY salary ASC //เรียง salary จาก น้อย-มาก
+
+**จำกัด Row ในการแสดงผล**
+SELECT fname,lname,salary
+FROM databaseName
+WHERE salary = 15000
+ORDER BY salary ASC
+LIMIT 3 //จำกัด Row ในการแสดงผล 3 แถว
+
+
 
 
 
