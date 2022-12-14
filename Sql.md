@@ -111,6 +111,27 @@ WHERE salary = 15000
 ORDER BY salary ASC
 LIMIT 3 //จำกัด Row ในการแสดงผล 3 แถว
 
+**นำเข้าข้อมูลจากตารางอื่น**
+INSERT INTO databaseeName_2(new_fname, new_lname, new_salary)
+SELECT fname,lname,salary FROM databaseName
+//ชนิดข้อมูลต้องตรงกัน
+
+**นำเข้าข้อมูลจากตารางอื่น แบบมีเงื่อนไข**
+INSERT INTO databaseeName_2(new_fname, new_lname, new_salary)
+SELECT fname,lname,salary FROM databaseName
+WHERE salary > 15000 
+
+**อัปเดตข้อมูลในตาราง**
+//ใช้ร่วมกับ WHERE
+UPDATE FROM databaseName
+SET salary = 70000
+WHERE address = "กรุงเทพมหานคร"
+
+**ลบข้อมูลในตาราง**
+//ใช้ร่วมกับWHERE
+DELETE FROM databaseName
+WHERE id = 'D001'
+
 
 
 
